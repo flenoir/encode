@@ -1,0 +1,35 @@
+<head>
+  <title>encode</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> inputFile}}
+</body>
+
+<template name="inputFile">
+   <form>
+    <input type="file" class="input_file">
+    <SELECT name="nom" class="aspect_ratio">
+	<OPTION>16:9</OPTION>
+	<OPTION>4:3</OPTION>
+	</SELECT>
+	<SELECT name="nom" class="codec">
+	<Option>mpeg4</Option>
+	<Option>libvpx-vp9</Option>
+	<Option>mpeg2video</Option>
+	<Option>libx265</OPTION>
+	<Option>libx264</OPTION>
+	<Option>mjpeg</OPTION>
+	<Option>libvpx</OPTION>
+	<OPTION>prores</OPTION>
+	</SELECT>
+    <input type="submit" value="Go" class="btn btn-primary">
+  </form>
+</template>
+
+  
+  <template name="show_file">
+  
+  </template>

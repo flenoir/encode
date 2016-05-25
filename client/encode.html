@@ -3,33 +3,74 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
 
-  {{> inputFile}}
+  <div class="container">
+  	<h1>Welcome to Encode!</h1>
+
+ 	 {{> inputFile}}
+
+ 	 {{> show_file}}
+  </div>
+
 </body>
 
+
+
 <template name="inputFile">
-   <form>
-    <input type="file" class="input_file">
-    <SELECT name="nom" class="aspect_ratio">
-	<OPTION>16:9</OPTION>
-	<OPTION>4:3</OPTION>
-	</SELECT>
-	<SELECT name="nom" class="codec">
-	<Option>mpeg4</Option>
-	<Option>libvpx-vp9</Option>
-	<Option>mpeg2video</Option>
-	<Option>libx265</OPTION>
-	<Option>libx264</OPTION>
-	<Option>mjpeg</OPTION>
-	<Option>libvpx</OPTION>
-	<OPTION>prores</OPTION>
-	</SELECT>
-    <input type="submit" value="Go" class="btn btn-primary">
-  </form>
+	<div class="input-field col s6">
+   	<form>
+	    <div class="input-field col s6">
+	    <input type="file" class="input_file">
+		</div>
+
+	    <div class="input-field col s6">
+	    <select name="nom" class="aspect_ratio browser-default">
+		    <option value="" disabled selected>Choisissez l'aspect ratio</option>
+		    <option>16:9</option>
+		    <option>4:3</option>
+	    </select>
+	  	</div>
+
+	    <div class="input-field col s6">
+		<select name="nom" class="codec browser-default">
+			<option value="" disabled selected>Choisissez le codec d'encodage</option>
+			<option>mpeg4</option>
+			<option>libvpx-vp9</option>
+			<option>mpeg2video</option>
+			<option>libx265</option>
+			<option>libx264</option>
+			<option>mjpeg</option>
+			<option>libvpx</option>
+			<option>prores</option>
+		</select>
+		</div>
+
+    	<input type="submit" value="Go" class="btn btn-primary">
+
+  	</form>
+  </div>
 </template>
 
   
   <template name="show_file">
   
+  <table class="striped">
+        <thead>
+          <tr>
+              <th data-field="id">Date</th>
+              <th data-field="name">Nom fichier</th>
+              <th data-field="status">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {{#each file}}
+          <tr>
+            <td>{{createdAt}}</td>
+            <td>{{name}}</td>
+            <td>{{status}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
   </template>
